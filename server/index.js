@@ -8,9 +8,9 @@ const app = express()
 dotenv.config()
 app.use(cors())
 
-app.use("/api", authRoute)
 
 
+app.use("/api/auth", authRoute)
 
 async function main() {
     try {
