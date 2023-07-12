@@ -27,16 +27,6 @@ export const getUser = async (req, res, next) => {
     }
 }
 
-// CREATE NEW USER
-export const createUser = async (req, res, next) => {
-    try {
-        const user = await User.create(req.body);
-        return res.status(201).json({ user });
-    } catch (err) {
-        next(err)
-    }
-}
-
 // DELETE USER
 export const deleteUser = async (req, res, next) => {
     const { id } = req.query;
@@ -60,7 +50,7 @@ export const deleteUser = async (req, res, next) => {
 }
 
 // UPDATE USER
-export const updateUser = async (req, res, err) => {
+export const updateUser = async (req, res, next) => {
     const { id } = req.query;
     const updatedFields = req.body;
 
