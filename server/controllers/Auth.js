@@ -53,3 +53,13 @@ export const login = async (req, res, next) => {
     }
 }
 
+// LOGOUT
+export const logout = (req, res, next) => {
+    try {
+        // Cookie'deki "access_token" değerini sıfırlayarak kullanıcıyı çıkış yapmış durumuna getiriyoruz
+        res.clearCookie("access_token");
+        res.status(200).json({ message: "Logout successful." });
+    } catch (err) {
+        next(err);
+    }
+};
