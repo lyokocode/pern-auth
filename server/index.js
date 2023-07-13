@@ -1,14 +1,18 @@
 import express from "express"
-import { sequelize } from "./database/db.js"
 import cors from "cors"
+import cookieParser from "cookie-parser"
 import dotenv from "dotenv"
+import { sequelize } from "./database/db.js"
 import authRoute from "./routes/auth.js"
 import userRoute from "./routes/user.js"
 
 const app = express()
+
+// middlewares
 dotenv.config()
 app.use(cors())
 app.use(express.json());
+app.use(cookieParser())
 
 
 app.use("/api/auth", authRoute)
@@ -27,7 +31,7 @@ app.use((err, req, res, next) => {
 
 async function main() {
     try {
-        await sequelize.sync({ force: true });
+        await sequelize.sync();
         console.log("db connection is successfull")
         app.listen(process.env.PORT, () => console.log(`api is running on port: ${process.env.PORT}`))
 
