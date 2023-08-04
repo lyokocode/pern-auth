@@ -13,15 +13,11 @@ router.post("/login", login)
 // LOGOUT
 router.post("/logout", verifyToken, logout);
 
-// CHECK
-router.get("/check", verifyToken, (req, res, next) => {
-    res.send("hello user you are logged in")
-})
 
-// CHECK
+// check
+
 router.get("/check/:id", verifyUser, (req, res, next) => {
-    res.send("Hello user, you are logged in and you can delete only your account.");
-});
-
+    res.send("hello user or admin")
+})
 
 export default router
