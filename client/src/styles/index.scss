@@ -7,3 +7,20 @@
   list-style: none;
   text-decoration: none;
 }
+
+html,
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+.app {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+
+  .appContainer {
+    flex: 6;
+  }
+
+}

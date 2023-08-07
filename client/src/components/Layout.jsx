@@ -1,13 +1,16 @@
 import { Outlet } from "react-router-dom"
-import { Navbar } from "."
-
+import { Navbar, Sidebar } from "."
+import "../styles/index.scss"
 export const Layout = () => {
 
     return (
-        <>
-            <Navbar />
-            <Outlet />
-        </>
+        <div className="app">
+            <Sidebar />
+            <section className="appContainer">
+                <Navbar />
+                <Outlet />
+            </section>
+        </div>
     )
 
 }
