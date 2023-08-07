@@ -1,2 +1,3 @@
-export { Login } from "./Login"
 export { Home } from "./Home"
+export { Login } from "./Login"
+export { Register } from "./Register"

@@ -21,10 +21,23 @@ export const User = sequelize.define('User', {
         allowNull: false,
         unique: true,
     },
+    phoneNumber: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+    },
     email: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
+    },
+    company: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    country: {
+        type: DataTypes.STRING,
+        allowNull: false,
     },
     password: {
         type: DataTypes.STRING,

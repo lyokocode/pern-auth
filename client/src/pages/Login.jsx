@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { loginFailure, loginSuccess } from '../store/authSlice';
-import { AiFillFacebook, AiFillInstagram, AiFillLock, AiOutlineRight, AiOutlineTwitter, AiOutlineUser } from "react-icons/ai"
+import { AiFillLock, AiOutlineRight, AiOutlineUser } from "react-icons/ai"
 import "../styles/login.scss"
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export const Login = () => {
 
     const [userName, setUserName] = useState('');
@@ -70,12 +70,8 @@ export const Login = () => {
 
 
                         <div className="socialLogin">
-                            <h3>log in via</h3>
-                            <div className="socialIcons">
-                                <a href="#" className="socialLoginIcon "> <AiFillInstagram /> </a>
-                                <a href="#" className="socialLoginIcon"><AiFillFacebook /></a>
-                                <a href="#" className="socialLoginIcon"><AiOutlineTwitter /></a>
-                            </div>
+                            <h6>you have an account?</h6>
+                            <Link to="/register">sign up</Link>
                         </div>
                     </div>
                     <div className="screenBackground">

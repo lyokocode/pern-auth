@@ -1,6 +1,6 @@
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Login, Home } from './pages'
+import { Login, Home, Register } from './pages'
 import { Navbar } from './components'
 import PrivateRoutes from './utils/PrivateRoute'
 
@@ -15,6 +15,7 @@ function App() {
           <Route element={<Home />} path="/" />
         </Route>
         < Route path='/login' element={<Login />} />
+        < Route path='/register' element={<Register />} />
       </Routes>
     </Router>
   )

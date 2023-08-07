@@ -15,6 +15,9 @@ export const register = async (req, res, next) => {
             last_name: req.body.last_name,
             userName: req.body.userName,
             email: req.body.email,
+            phoneNumber: req.body.phoneNumber,
+            company: req.body.company,
+            country: req.body.country,
             password: hash
         });
         return res.status(201).json(newUser);

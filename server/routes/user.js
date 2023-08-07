@@ -6,7 +6,7 @@ import { verifyAdmin, verifySuperAdmin, verifyUser } from "../utils/verifyToken.
 const router = express.Router()
 
 // GET ALL USER
-router.get("/", verifySuperAdmin, getAllUsers)
+router.get("/", getAllUsers)
 
 // GET USER
 router.get("/user", verifyUser, getUser)
