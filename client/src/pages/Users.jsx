@@ -1,6 +1,13 @@
+import useFetch from '../hooks/useFetch';
 import '../styles/Users.scss';
 
 export const Users = () => {
+
+    const { data, loading, error } = useFetch("http://localhost:5000/api/user")
+
+    if (loading) return "loading"
+    if (error) return "there is a problem"
+    console.log(data ? data : "dsa")
     return (
         <div className="users">
             <div className="container">
