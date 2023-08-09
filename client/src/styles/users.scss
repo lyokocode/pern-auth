@@ -1,0 +1,203 @@
+.users {
+    overflow-x: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    .container {
+        min-width: 100%;
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f0f4f8;
+        font-family: sans-serif;
+        overflow: hidden;
+
+        .responsive {
+            width: 100%;
+
+            @media (min-width: 1024px) {
+                width: 83.33333%;
+            }
+
+            .content {
+                background-color: white;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                border-radius: 4px;
+                margin: 24px 0;
+
+                .table {
+                    width: 100%;
+                    table-layout: auto;
+                    min-width: max-content;
+
+                    thead {
+                        tr {
+                            line-height: 20px;
+                            font-size: 14px;
+                            text-transform: uppercase;
+                            color: #4b5563;
+                            background: #e5e7eb;
+
+                            th {
+                                padding: 12px 24px;
+
+                                &.left {
+                                    text-align: left;
+                                }
+
+                                &.center {
+                                    text-align: center;
+                                }
+                            }
+
+                        }
+                    }
+
+                    .body {
+                        color: #4b5563;
+                        font-size: 14px;
+                        line-height: 20px;
+                        font-weight: 300;
+
+                        tr {
+                            border-bottom: 1px solid #e5e7eb;
+                            transition: 0.3s all;
+
+                            &:nth-child(odd) {
+                                &:hover {
+                                    background-color: #f3f4f6;
+                                }
+
+                            }
+
+                            &:nth-child(even) {
+                                background-color: #f9fafb;
+
+                                &:hover {
+                                    background-color: #f3f4f6;
+                                }
+                            }
+
+                            td {
+                                padding: 12px 24px;
+
+                                &:first-child {
+                                    white-space: nowrap;
+                                }
+
+                                &.left {
+                                    text-align: left;
+                                }
+
+                                &.center {
+                                    text-align: center;
+                                }
+
+                                div:first-child {
+                                    display: flex;
+                                    align-items: center;
+                                }
+
+                                span {
+                                    font-weight: 500;
+
+
+                                }
+
+                                &>div>div {
+                                    margin-right: 8px;
+
+                                    img {
+
+                                        width: 24px;
+                                        height: 24px;
+                                        border-radius: 50%;
+                                    }
+
+                                }
+
+                                &.users {
+                                    div {
+                                        justify-content: center;
+
+                                        img {
+                                            width: 24px;
+                                            height: 24px;
+                                            border-radius: 50%;
+                                            border: 1px solid #e5e7eb;
+                                            transition: 0.2s all;
+
+                                            &:hover {
+                                                transform: scale(1.25)
+                                            }
+
+                                            &:not(:first-child) {
+                                                margin: -4px;
+                                            }
+                                        }
+
+                                    }
+                                }
+
+                                &.status {
+                                    span {
+                                        font-size: 12px;
+                                        line-height: 16px;
+
+                                        padding: 4px 12px;
+                                        border-radius: 10px;
+
+                                        &.active {
+                                            color: #9333ea;
+                                            background-color: #e9d5ff;
+                                        }
+
+                                        &.completed {
+                                            color: #16a34a;
+                                            background-color: #bbf7d0;
+                                        }
+
+                                        &.scheduled {
+                                            color: #ca8a04;
+                                            background-color: #fef08a;
+                                        }
+
+                                        &.pending {
+                                            color: #dc2626;
+                                            background-color: #fecaca;
+
+                                        }
+                                    }
+                                }
+
+                                &.actions {
+                                    div {
+                                        justify-content: center;
+
+                                        .iconContainer {
+                                            width: 18px;
+                                            transition: 0.3s all;
+
+                                            &:hover {
+                                                transform: scale(1.2);
+                                                color: #a855f7;
+                                            }
+
+                                            svg {
+                                                cursor: pointer;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

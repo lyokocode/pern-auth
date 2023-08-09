@@ -37,7 +37,7 @@ export const Sidebar = () => {
                         </li>
                     </Link>
                     <p className="title">Lists</p>
-                    <Link to="/">
+                    <Link to="/users">
                         <li>
                             <AiOutlineUser className="icon" />
                             <span>Users</span>

@@ -70,7 +70,7 @@ export const Login = () => {
 
 
                         <div className="socialLogin">
-                            <h6>you have an account?</h6>
+                            <h6>{"Don't Have an Account?"}</h6>
                             <Link to="/register">sign up</Link>
                         </div>
                     </div>
