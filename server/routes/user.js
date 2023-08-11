@@ -9,13 +9,14 @@ const router = express.Router()
 router.get("/", getAllUsers)
 
 // GET USER
-router.get("/user", verifyUser, getUser)
+router.get("/:id", getUser)
 
 // DELETE USER
-router.delete("/user", deleteUser)
+router.delete("/:id", deleteUser)
 
 // UPDATE USER
-router.put("/user", updateUser)
+router.put("/:id", updateUser)
+
 
 
 export default router

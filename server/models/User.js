@@ -48,4 +48,9 @@ export const User = sequelize.define('User', {
         allowNull: false,
         defaultValue: 'customer',
     },
+    isActive: {
+        type: DataTypes.BOOLEAN,
+        allowNull: true,
+        defaultValue: null,
+    }
 })

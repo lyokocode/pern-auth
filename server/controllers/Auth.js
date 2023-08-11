@@ -2,6 +2,8 @@ import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 import { User } from "../models/User.js";
 import { createError } from "../utils/error.js"
+import { updateUserOnlineStatus } from "./User.js";
+
 
 // REGISTER
 export const register = async (req, res, next) => {
@@ -40,9 +42,11 @@ export const login = async (req, res, next) => {
         const isPsswordCorrect = await bcrypt.compare(req.body.password, user.password)
         if (!isPsswordCorrect) return next(createError(400, "wrong password or username"))
 
-        const token = jwt.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET)
+        const token = jwt.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '6h' })
 
         const { password, role, ...info } = user.dataValues
+
+        await updateUserOnlineStatus(user.id, true);
 
         return res
             .cookie("access_token", token, {
@@ -57,9 +61,14 @@ export const login = async (req, res, next) => {
 }
 
 // LOGOUT
-export const logout = (req, res, next) => {
+export const logout = async (req, res, next) => {
+    const userId = req.params.id; // Assuming you can get the user ID from params
+
+
     try {
-        // Cookie'deki "access_token" değerini sıfırlayarak kullanıcıyı çıkış yapmış durumuna getiriyoruz
+        await User.update({ isActive: false }, { where: { id: userId } });
+
+
         res.clearCookie("access_token");
         res.status(200).json({ message: "Logout successful." });
     } catch (err) {

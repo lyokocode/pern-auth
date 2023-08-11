@@ -1,5 +1,22 @@
-import { User } from "../models/User.js"
+// controller/user.js
+import { User } from "../models/User.js";
 
+// Kullanıcının çevrim içi durumunu güncelle
+export const updateUserOnlineStatus = async (userId, isActive) => {
+    try {
+        const user = await User.findByPk(userId);
+
+        if (!user) {
+            throw new Error('User not found');
+        }
+
+        await user.update({ isActive });
+
+        return { success: true };
+    } catch (error) {
+        return { success: false, error: error.message };
+    }
+};
 // GET ALL USER
 export const getAllUsers = async (req, res, next) => {
     try {
