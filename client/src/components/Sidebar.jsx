@@ -5,17 +5,24 @@ import { AiOutlineUser, AiFillCreditCard } from "react-icons/ai"
 import { SiExpensify, SiHomeassistantcommunitystore } from "react-icons/si"
 import { FaTruck } from "react-icons/fa"
 import { BiUserCircle } from "react-icons/bi"
-
+import axios from "axios"
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../store/authSlice';
 
 export const Sidebar = () => {
+    const { user } = useSelector(state => state.auth)
 
     const dispatch = useDispatch();
-
-    const handleLogout = () => {
-        dispatch(logout());
+    const handleLogout = async () => {
+        if (user) {
+            try {
+                await axios.post(`http://localhost:5000/api/auth/logout/${user.id}`);
+                dispatch(logout()); // Clear user info from Redux store
+            } catch (error) {
+                console.error('Logout error:', error);
+            }
+        }
     };
 
 

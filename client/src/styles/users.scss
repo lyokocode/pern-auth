@@ -156,22 +156,44 @@
                                             background-color: #e9d5ff;
                                         }
 
-                                        &.completed {
-                                            color: #16a34a;
-                                            background-color: #bbf7d0;
-                                        }
-
-                                        &.scheduled {
-                                            color: #ca8a04;
-                                            background-color: #fef08a;
-                                        }
-
-                                        &.pending {
+                                        &.inactive {
                                             color: #dc2626;
                                             background-color: #fecaca;
 
                                         }
                                     }
+                                }
+
+                                &.role {
+                                    span {
+                                        font-size: 12px;
+                                        line-height: 16px;
+
+                                        padding: 4px 12px;
+                                        border-radius: 10px;
+
+                                        &.customer {
+                                            color: #e11d48;
+                                            background-color: #fecdd3;
+                                        }
+
+                                        &.user {
+                                            color: #c026d3;
+                                            background-color: #f5d0fe;
+                                        }
+
+                                        &.admin {
+                                            color: #4f46e5;
+                                            background-color: #c7d2fe;
+                                        }
+
+                                        &.superAdmin {
+                                            color: #99f6e4;
+                                            background-color: #99f6e4;
+
+                                        }
+                                    }
+
                                 }
 
                                 &.actions {
