@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom"
-import { Navbar, Sidebar } from "."
+import { Navbar, Sidebar } from "../components"
 import "../styles/index.scss"
+
 export const Layout = () => {
 
     return (

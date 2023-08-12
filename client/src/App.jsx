@@ -1,8 +1,7 @@
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Login, Home, Register, Users } from './pages'
-import { Layout } from './components'
-import PrivateRoutes from './utils/PrivateRoute'
+import { Login, Home, Register, Users, SingleUser } from './pages'
+import { PrivateRoutes, Layout } from './utils'
 
 
 function App() {
@@ -14,6 +13,7 @@ function App() {
           <Route element={<Layout />}>
             <Route element={<Home />} path="/" />
             <Route element={<Users />} path="/users" />
+            <Route element={<SingleUser />} path="/users/:id" />
           </Route>
         </Route>
         < Route path='/login' element={<Login />} />
