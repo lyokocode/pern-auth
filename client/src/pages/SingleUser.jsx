@@ -1,5 +1,6 @@
 import useFetch from "../hooks/useFetch"
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link, useNavigate } from "react-router-dom"
+import axios from "axios"
 import { AiOutlineUser } from "react-icons/ai"
 import { BiArrowBack } from "react-icons/bi"
 import "../styles/singleUser.scss"
@@ -8,7 +9,23 @@ export const SingleUser = () => {
 
     const { data, loading, error } = useFetch(`http://localhost:5000/api/user/user?id=${id}`)
     const { user } = data
+    const navigate = useNavigate()
 
+    const handleDelete = async () => {
+        try {
+            await axios.delete(`http://localhost:5000/api/user/user?id=${id}`);
+            navigate("/users")
+        } catch (error) {
+            console.error("Error deleting user:", error);
+        }
+    };
+
+    const handleConfirmDelete = () => {
+        const confirmed = window.confirm("Delete account?");
+        if (confirmed) {
+            handleDelete();
+        }
+    };
 
 
     if (loading) {
@@ -58,8 +75,8 @@ export const SingleUser = () => {
                                 </div>
                             </div>
                             <div className="buttons ">
-                                <a href="#" className="btn delete">Delete</a>
-                                <a href="#" className="btn update">Update</a>
+                                <button className="btn delete" onClick={handleConfirmDelete}>Delete</button>
+                                <button className="btn update">Update</button>
                             </div>
                         </div>
                     </section>
