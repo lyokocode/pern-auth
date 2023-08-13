@@ -1,0 +1,80 @@
+.filterContainer {
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    padding: 16px;
+    width: 100%;
+    max-width: 300px;
+    position: absolute;
+
+    h3 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .filterGroup {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 16px;
+
+        label {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        button {
+            background-color: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            color: #4b5563;
+            cursor: pointer;
+            font-size: 14px;
+            margin-bottom: 6px;
+            padding: 8px 12px;
+            transition: background-color 0.3s, color 0.3s;
+
+            &:hover {
+                background-color: #e5e7eb;
+            }
+
+            &:active {
+                background-color: #d1d5db;
+            }
+        }
+    }
+
+    .buttonContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button {
+            border-radius: 4px;
+            border: none;
+            font-size: 14px;
+            padding: 10px 16px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #372fce;
+            }
+
+            &:active {
+                background-color: #241cad;
+            }
+
+            &.applyButton {
+                background-color: #2563eb;
+                color: #bfdbfe;
+            }
+
+            &.clearButton {
+                background-color: #db2777;
+                color: #bfdbfe;
+
+            }
+        }
+    }
+}

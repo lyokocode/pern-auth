@@ -4,13 +4,22 @@ import { Link } from "react-router-dom"
 import { AiOutlineMail, AiOutlineUser } from "react-icons/ai"
 import '../styles/Users.scss';
 import { useState } from 'react';
+import { FilterData } from '../components';
 
 export const Users = () => {
 
+    const [modal, setModal] = useState(false);
     const [role, setRole] = useState('');
-    const [country, setCountry] = useState('');
+    const [isActive, setIsActive] = useState('');
 
-    const { data, loading, error, reFetch } = useFetch(`http://localhost:5000/api/user?role=${role}&country=${country}`)
+    const handleFilterApply = (selectedRole, selectedIsActive) => {
+        setRole(selectedRole);
+        setIsActive(selectedIsActive);
+        setModal(false);
+    };
+
+    const { data, loading, error, reFetch } = useFetch(`http://localhost:5000/api/user?role=${role}&isActive=${isActive}`)
+
 
     const handleDelete = async (id) => {
         try {
@@ -124,9 +133,13 @@ export const Users = () => {
                             </tbody>
                         </table>
                     </div>
-                    <button onClick={reFetch}>Refresh Data</button>
+                    <div className='buttonContainer'>
+                        <button className='refresh' onClick={reFetch}>Refresh Data</button>
+                        <button className='filter' onClick={() => setModal(!modal)} >Filter Data</button>
+                    </div>
                 </div>
             </div>
+            {modal && <FilterData onFilterApply={handleFilterApply} />}
         </div>
     );
 };

@@ -11,9 +11,13 @@ function App() {
       <Routes>
         <Route element={<PrivateRoutes />}>
           <Route element={<Layout />}>
-            <Route element={<Home />} path="/" />
-            <Route element={<Users />} path="/users" />
-            <Route element={<SingleUser />} path="/users/:id" />
+            <Route>
+              <Route path="/" element={<Home />} />
+              <Route path='/users'>
+                <Route index element={<Users />} />
+                <Route path=":id" element={<SingleUser />} />
+              </Route>
+            </Route>
           </Route>
         </Route>
         < Route path='/login' element={<Login />} />

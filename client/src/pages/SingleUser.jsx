@@ -37,7 +37,7 @@ export const SingleUser = () => {
         return (
 
             <main className="singleUser">
-                <Link to="/users" className="back">
+                <Link to=".." className="back">
                     <BiArrowBack size={25} />
                     <>Back to all users</>
 
