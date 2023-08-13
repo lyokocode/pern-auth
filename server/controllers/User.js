@@ -17,13 +17,27 @@ export const updateUserOnlineStatus = async (userId, isActive) => {
         return { success: false, error: error.message };
     }
 };
+
 // GET ALL USER
 export const getAllUsers = async (req, res, next) => {
+    const filterParams = req.query;
+    const whereClause = {};
+
+    for (const key in filterParams) {
+        if (filterParams[key] !== '') {
+            whereClause[key] = filterParams[key];
+        }
+    }
+
     try {
-        const users = await User.findAll({});
-        res.json(users);
+        const users = await User.findAll({
+            where: whereClause,
+        });
+
+        return res.json({ users });
+
     } catch (err) {
-        next(err)
+        next(err);
     }
 };
 

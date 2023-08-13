@@ -3,11 +3,14 @@ import axios from "axios"
 import { Link } from "react-router-dom"
 import { AiOutlineMail, AiOutlineUser } from "react-icons/ai"
 import '../styles/Users.scss';
+import { useState } from 'react';
 
 export const Users = () => {
 
-    const { data, loading, error, reFetch } = useFetch("http://localhost:5000/api/user")
+    const [role, setRole] = useState('');
+    const [country, setCountry] = useState('');
 
+    const { data, loading, error, reFetch } = useFetch(`http://localhost:5000/api/user?role=${role}&country=${country}`)
 
     const handleDelete = async (id) => {
         try {
@@ -48,7 +51,7 @@ export const Users = () => {
                                 </tr>
                             </thead>
                             <tbody className="body">
-                                {data && data.map(user => (
+                                {data.users && data.users.map(user => (
 
                                     <tr key={user.id}>
                                         {/* full name */}
