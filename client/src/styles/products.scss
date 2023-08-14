@@ -1,0 +1,163 @@
+.products {
+    .title {
+        padding: 20px;
+        background-color: #fff;
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            line-height: 32px;
+            font-weight: 700;
+            color: #1f2937;
+            text-decoration: underline;
+        }
+    }
+
+    .tabMenu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 40px 0px;
+        background-color: #f8fafc;
+        color: #1f2937;
+        // box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+        .iconContainer {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            padding: 12px 20px;
+            color: #4b5563;
+            gap: 5px;
+        }
+    }
+
+    .productContainer {
+        padding: 40px 0;
+        background-color: #f3f4f6;
+
+        .productContent {
+            margin: auto;
+            display: grid;
+            max-width: 72rem;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 24px;
+            padding: 24px;
+
+            @media screen and (max-width: 1136px) {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            @media screen and (max-width: 940px) {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            @media screen and (max-width: 690px) {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+
+            .productCard {
+                border-radius: 5%;
+                background-color: #fff;
+                padding: 12px;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                transition: 0.4s all;
+
+                &:hover {
+                    transform: scale(1.05);
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                }
+
+                .productInfo {
+                    position: relative;
+                    display: flex;
+                    align-items: flex-end;
+                    overflow: hidden;
+                    border-radius: 5%;
+
+                    img {
+                        object-fit: cover;
+                    }
+
+                    .star {
+                        position: absolute;
+                        bottom: 12px;
+                        left: 12px;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 4px;
+                        border-radius: 8px;
+                        padding: 8px;
+                        background-color: #fff;
+                        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+                        svg {
+                            color: #eab308;
+                        }
+
+                        span.num {
+                            margin-left: 4px;
+                            font-size: 14px;
+                            line-height: 20px;
+                            color: #94a3b8;
+                        }
+
+                    }
+                }
+
+                .productDetail {
+                    margin-top: 4px;
+                    padding: 8px;
+
+                    .productName {
+                        color: #334155;
+                    }
+
+                    .place {
+                        margin-top: 4px;
+                        font-size: 14px;
+                        line-height: 20px;
+                        color: #94a3b8;
+                    }
+
+                    .info {
+                        margin-top: 12px;
+                        display: flex;
+                        align-items: flex-end;
+                        justify-content: space-between;
+
+                        .price {
+                            font-size: 18px;
+                            line-height: 28px;
+                            font-weight: 700;
+                            color: #3b82f6;
+                        }
+
+                        .cart {
+                            display: flex;
+                            align-items: center;
+                            gap: 7px;
+                            background-color: #3b82f6;
+                            padding: 6px 16px;
+                            border-radius: 8px;
+                            transition: 0.2s all;
+                            color: white;
+
+                            &:hover {
+                                background-color: #2563eb;
+                            }
+
+                            button {
+                                font-size: 14px;
+                                line-height: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -54,7 +54,7 @@ export const Sidebar = () => {
                             <span>Users</span>
                         </li>
                     </Link>
-                    <Link to="/">
+                    <Link to="/products">
                         <li>
                             <SiHomeassistantcommunitystore className="icon" />
                             <span>Products</span>

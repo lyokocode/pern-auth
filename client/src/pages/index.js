@@ -1,5 +1,6 @@
 export { Home } from "./Home"
 export { Users } from "./Users"
 export { SingleUser } from "./SingleUser"
+export { Products } from "./Products"
 export { Login } from "./Login"
 export { Register } from "./Register"
