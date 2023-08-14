@@ -7,6 +7,14 @@
     width: 100%;
     max-width: 300px;
     position: absolute;
+    cursor: move;
+
+
+    .closeBtn {
+        background-color: transparent;
+        position: absolute;
+        right: 0;
+    }
 
     h3 {
         font-size: 18px;

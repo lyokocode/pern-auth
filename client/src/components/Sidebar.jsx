@@ -9,6 +9,8 @@ import axios from "axios"
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../store/authSlice';
+import { destroyModal } from "../utils/modal";
+
 
 export const Sidebar = () => {
     const { user } = useSelector(state => state.auth)
@@ -27,7 +29,9 @@ export const Sidebar = () => {
 
 
     return (
-        <div className='sidebar '>
+        <div className='sidebar '
+            onClick={e => e.stopPropagation(destroyModal())}
+        >
             <div className="top">
                 <Link to="/">
                     <h1>aelita</h1>

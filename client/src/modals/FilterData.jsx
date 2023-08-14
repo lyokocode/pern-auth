@@ -1,6 +1,12 @@
 import { useState } from "react";
-import "../styles/filterModal.scss"
-export const FilterData = ({ onFilterApply }) => {
+import "../styles/modal/filterModal.scss"
+import { destroyModal } from "../utils/modal";
+import { AiOutlineClose } from "react-icons/ai";
+import { updateModalPosition } from "../helper/modalPosition";
+
+
+const FilterData = ({ data: onFilterApply, }) => {
+
     const [role, setRole] = useState('');
     const [isActive, setIsActive] = useState('');
 
@@ -14,46 +20,26 @@ export const FilterData = ({ onFilterApply }) => {
         onFilterApply(role, isActive)
     };
 
-
-
     const [modalStyle, setModalStyle] = useState({
-        top: 50,
-        left: 0,
+        top: 200,
+        left: 200,
     });
 
-    const handleModalDragStart = (e) => {
-        // const modal = e.currentTarget;
-        const initialX = e.clientX - modalStyle.left;
-        const initialY = e.clientY - modalStyle.top;
+    const handleModalDragStart = updateModalPosition(modalStyle, setModalStyle);
 
-        const handleMouseMove = (e) => {
-            const newLeft = e.clientX - initialX;
-            const newTop = e.clientY - initialY;
-
-            setModalStyle({
-                left: newLeft,
-                top: newTop,
-            });
-        };
-
-        const handleMouseUp = () => {
-            document.removeEventListener('mousemove', handleMouseMove);
-            document.removeEventListener('mouseup', handleMouseUp);
-        };
-
-        document.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('mouseup', handleMouseUp);
-    };
 
 
     return (
         <div className="filterContainer"
             style={{
-                top: modalStyle.top + 'px',
-                left: modalStyle.left + 'px',
+                top: modalStyle.top,
+                left: modalStyle.left,
             }}
             onMouseDown={handleModalDragStart}
+
         >
+
+            <button className="closeBtn" onClick={destroyModal}><AiOutlineClose size={25} /></button>
             <h3>Filter Users</h3>
 
             <div className="filterGroup">
@@ -70,7 +56,6 @@ export const FilterData = ({ onFilterApply }) => {
                 <button onClick={() => setIsActive('false')}>Inactive</button>
             </div>
 
-
             <div className="buttonContainer">
                 <button className="applyButton" onClick={handleApplyFilter}>Apply Filter</button>
                 <button className="clearButton" onClick={handleClearFilters}>Clear Filter</button>
@@ -78,3 +63,7 @@ export const FilterData = ({ onFilterApply }) => {
         </div>
     )
 }
+
+export default FilterData
+
+

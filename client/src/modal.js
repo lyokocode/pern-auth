@@ -1,9 +1,14 @@
-import Hello from "./modals/Hello";
+import FilterData from "./modals/FilterData";
+import UpdateUser from "./modals/UpdateUser";
 
 const modal = [
     {
-        name: "hello",
-        element: Hello
+        name: "dataFilter",
+        element: FilterData
+    },
+    {
+        name: "updateUser",
+        element: UpdateUser
     },
 
 ]

@@ -4,18 +4,22 @@ import { Link } from "react-router-dom"
 import { AiOutlineMail, AiOutlineUser } from "react-icons/ai"
 import '../styles/Users.scss';
 import { useState } from 'react';
-import { FilterData } from '../components';
+import { createModal, destroyModal, useModals } from '../utils/modal';
+import Modal from "../modals"
+
 
 export const Users = () => {
 
-    const [modal, setModal] = useState(false);
+    const modals = useModals()
+
+
     const [role, setRole] = useState('');
     const [isActive, setIsActive] = useState('');
 
     const handleFilterApply = (selectedRole, selectedIsActive) => {
         setRole(selectedRole);
         setIsActive(selectedIsActive);
-        setModal(false);
+        destroyModal()
     };
 
     const { data, loading, error, reFetch } = useFetch(`http://localhost:5000/api/user?role=${role}&isActive=${isActive}`)
@@ -135,11 +139,13 @@ export const Users = () => {
                     </div>
                     <div className='buttonContainer'>
                         <button className='refresh' onClick={reFetch}>Refresh Data</button>
-                        <button className='filter' onClick={() => setModal(!modal)} >Filter Data</button>
+                        <button className='filter' onClick={() => {
+                            createModal("dataFilter")
+                        }}>Filter Data</button>
                     </div>
                 </div>
             </div>
-            {modal && <FilterData onFilterApply={handleFilterApply} />}
+            {modals.length > 0 && <Modal data={handleFilterApply} />}
         </div>
     );
 };

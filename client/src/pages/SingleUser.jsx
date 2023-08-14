@@ -4,12 +4,20 @@ import axios from "axios"
 import { AiOutlineUser } from "react-icons/ai"
 import { BiArrowBack } from "react-icons/bi"
 import "../styles/singleUser.scss"
+import { createModal, useModals } from '../utils/modal';
+import Modal from "../modals"
+
 export const SingleUser = () => {
+
     const { id } = useParams()
+
 
     const { data, loading, error } = useFetch(`http://localhost:5000/api/user/user?id=${id}`)
     const { user } = data
     const navigate = useNavigate()
+
+    const modals = useModals()
+
 
     const handleDelete = async () => {
         try {
@@ -76,9 +84,13 @@ export const SingleUser = () => {
                             </div>
                             <div className="buttons ">
                                 <button className="btn delete" onClick={handleConfirmDelete}>Delete</button>
-                                <button className="btn update">Update</button>
+                                <button className="btn update" onClick={() => {
+                                    createModal("updateUser")
+                                }}>Update</button>
                             </div>
                         </div>
+                        {modals.length > 0 && <Modal data={user} />}
+
                     </section>
                 ) : ("user not found")}
             </main>

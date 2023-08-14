@@ -2,13 +2,14 @@
     display: none;
     position: fixed;
     top: 50%;
-    left: 50%;
+    left: 55%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.5);
-    width: 300px;
+    min-width: 300px;
+    width: 80%;
+    height: 80%;
     padding: 20px;
-    color: white;
-    border-radius: 5px;
+    // color: white;
     z-index: 1000;
     transition: opacity 0.3s, visibility 0.3s;
 
@@ -28,6 +29,8 @@
 
 
     &:last-child {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
