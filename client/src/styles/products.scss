@@ -42,7 +42,8 @@
         .productContent {
             margin: auto;
             display: grid;
-            max-width: 72rem;
+            // max-width: 72rem;
+            width: 100%;
             grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 24px;
             padding: 24px;
