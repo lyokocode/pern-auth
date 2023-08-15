@@ -5,6 +5,8 @@ import dotenv from "dotenv"
 import { sequelize } from "./database/db.js"
 import authRoute from "./routes/auth.js"
 import userRoute from "./routes/user.js"
+import categoryRoute from "./routes/category.js"
+import productRoute from "./routes/product.js"
 
 const app = express()
 
@@ -14,9 +16,11 @@ app.use(cors())
 app.use(express.json());
 app.use(cookieParser())
 
-
+// Routes
 app.use("/api/auth", authRoute)
 app.use("/api/user", userRoute)
+app.use("/api/category", categoryRoute)
+app.use("/api/product", productRoute)
 
 app.use((err, req, res, next) => {
     const errorStatus = err.status || 500
@@ -31,7 +35,7 @@ app.use((err, req, res, next) => {
 
 async function main() {
     try {
-        await sequelize.sync();
+        await sequelize.sync({ force: true });
         console.log("db connection is successfull")
         app.listen(process.env.PORT, () => console.log(`api is running on port: ${process.env.PORT}`))
 

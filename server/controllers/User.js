@@ -1,4 +1,3 @@
-// controller/user.js
 import { User } from "../models/User.js";
 
 // Kullanıcının çevrim içi durumunu güncelle

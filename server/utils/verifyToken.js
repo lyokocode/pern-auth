@@ -23,26 +23,3 @@ export const verifyUser = (req, res, next) => {
         }
     })
 };
-
-export const verifyAdmin = (req, res, next) => {
-    verifyToken(req, res, () => {
-        if (req.user.role === "admin") {
-            next()
-        } else {
-            return next(createError(403, "you are not autharized!"))
-
-        }
-    })
-};
-
-export const verifySuperAdmin = (req, res, next) => {
-    verifyToken(req, res, () => {
-        if (req.user.role === "superAdmin") {
-            next()
-        } else {
-            return next(createError(403, "you are not autharized!"))
-
-        }
-    })
-};
-
