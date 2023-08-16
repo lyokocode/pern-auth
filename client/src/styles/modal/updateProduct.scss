@@ -1,0 +1,136 @@
+.updateProduct {
+    width: 50%;
+    min-width: 450px;
+    height: 100%;
+    margin: auto;
+    padding: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5%;
+    background-color: #1e293b;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.3s all;
+    position: relative;
+
+    .closeBtn {
+        position: absolute;
+        color: #e2e8f0;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        transform: scale(1.1);
+    }
+
+    img {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 8px;
+    }
+
+    input {
+        padding: 4px;
+        font-size: 18px;
+        line-height: 28px;
+        font-weight: 500;
+        background-color: transparent;
+        color: #e2e8f0;
+        border: 0.5px solid #64748b;
+        border-radius: 8px;
+        width: 100%;
+
+        &.name {
+            margin-bottom: 8px;
+        }
+
+        &.desc {
+            font-size: 14px;
+            overflow-x: auto;
+        }
+    }
+
+    .detail {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+
+        input {
+            width: 25%;
+            flex: 1;
+
+            &.price {
+                font-size: 18px;
+                line-height: 28px;
+                font-weight: 600;
+                margin-right: 8px;
+                margin-top: 10px;
+                color: #e2e8f0;
+
+            }
+        }
+
+        select {
+            flex: 1;
+            background-color: transparent;
+            color: #e2e8f0;
+            border-radius: 8px;
+            border: 1px solid #64748b;
+
+            option {
+                background-color: transparent;
+                color: #e2e8f0;
+                border-radius: 8px;
+                border: 1px solid #64748b;
+            }
+        }
+
+        div.stock {
+            max-width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            flex: 2;
+
+            input {
+                flex: 1;
+            }
+
+            p {
+                flex: 1;
+                font-size: 16px;
+                line-height: 24px;
+                font-weight: 500;
+                color: #22c55e;
+            }
+        }
+    }
+
+    .buttonContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        button {
+            padding: 10px 20px;
+            color: #e2e8f0;
+            border-radius: 8px;
+
+            &.submit {
+                background-color: #22c55e;
+            }
+
+            &.delete {
+                background-color: #db2777;
+            }
+        }
+    }
+}

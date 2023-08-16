@@ -52,38 +52,8 @@ export const Products = () => {
                     ))
                         : ("products not found")}
 
-                    {/* product2 */}
-                    {/* <article className="productCard">
-                        <a href="#">
-                            <div className="productInfo">
-                                <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Hotel Photo" />
-                                <div className="star ">
-                                    <AiFillStar size={16} />
-                                    <span className="num">4.9</span>
-                                </div>
-                            </div>
-
-                            <div className="productDetail">
-                                <h2 className="productName">The Hilton Hotel</h2>
-                                <p className="place">Lisbon, Portugal</p>
-
-                                <div className="info">
-                                    <p className="price">$850</p>
-
-                                    <div className="cart">
-                                        <MdSettings size={14} />
-
-                                        <button className="text-sm">Update</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </article> */}
-
                 </div>
             </main>
-
-
 
         </section>
     )
