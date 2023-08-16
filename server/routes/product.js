@@ -1,17 +1,24 @@
 import express from "express";
-import { createProduct, getAllProducts, updateProduct } from "../controllers/Product.js";
+import { createProduct, deleteProduct, getAllProducts, getProduct, updateProduct } from "../controllers/Product.js";
 
 
 const router = express.Router()
 
-// GET ALL Categories
+// GET ALL PRODUCT
 router.get("/", getAllProducts)
 
-// Create New Category
+// GET PRODUCT
+router.get("/product", getProduct)
+
+// CREATE NEW PRODUCT
 router.post("/", createProduct)
 
 // Update Product
 router.put("/:id", updateProduct)
+
+// Delete Product
+router.delete("/product", deleteProduct)
+
 
 
 

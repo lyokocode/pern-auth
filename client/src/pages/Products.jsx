@@ -1,10 +1,7 @@
 import "../styles/products.scss"
-import { BiBookOpen, BiBookmark, BiRefresh, BiStar } from "react-icons/bi"
-import { MdOutlineExplore } from "react-icons/md"
 import useFetch from "../hooks/useFetch"
-import { FilterMenu, ProductItem } from "../components"
+import { FilterMenu, ProductItem, TabMenu } from "../components"
 import { useState } from "react"
-import { Link } from "react-router-dom"
 
 export const Products = () => {
 
@@ -29,28 +26,7 @@ export const Products = () => {
             </div>
 
             {/* Tab Menu  */}
-            <nav className="tabMenu">
-                <a className="iconContainer ">
-                    <BiBookmark size={20} />
-                    <span>Architecto</span>
-                </a>
-                <a className="iconContainer">
-                    <BiBookOpen size={20} />
-                    <span>Corrupti</span>
-                </a>
-                <a className="iconContainer">
-                    <BiStar size={20} />
-                    <span>Excepturi</span>
-                </a>
-                <a className="iconContainer">
-                    <MdOutlineExplore size={20} />
-                    <span>Consectetur</span>
-                </a>
-                <button onClick={() => reFetch()} className="iconContainer">
-                    <BiRefresh size={20} />
-                    <span>Refresh Data</span>
-                </button>
-            </nav>
+            <TabMenu reFetch={reFetch} />
 
             {/* Category Menu */}
             <FilterMenu
@@ -63,11 +39,9 @@ export const Products = () => {
             <main className="productContainer">
                 <div className="productContent ">
                     {/* product1 */}
-                    {filteredProducts.length > 0 ? filteredProducts.map(product => (
-                        <ProductItem key={product.id} product={product} />
-                    ))
-                        : ("products not found")}
-
+                    {filteredProducts && filteredProducts.map(product => (
+                        <ProductItem key={product.id} product={product} reFetch={reFetch} />
+                    ))}
                 </div>
             </main>
 

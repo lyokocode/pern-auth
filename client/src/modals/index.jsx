@@ -2,7 +2,7 @@ import modalData from "../modal.js"
 import { useModals } from "../utils/modal"
 import "../styles/modal/modal.scss"
 
-export default function Modal({ data }) {
+export default function Modal({ data, reFetch }) {
     const modals = useModals()
     return (
         <div >
@@ -12,7 +12,7 @@ export default function Modal({ data }) {
 
                     return (
                         <div className="modalContainer" key={i}>
-                            <m.element data={data} />
+                            <m.element data={data} reFetch={reFetch} />
                         </div>
                     )
                 })

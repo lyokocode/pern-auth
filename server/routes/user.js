@@ -8,7 +8,7 @@ const router = express.Router()
 router.get("/", getAllUsers)
 
 // GET USER
-router.get("/user", getUser)
+router.get("/", getUser)
 
 // DELETE USER
 router.delete("/user", deleteUser)

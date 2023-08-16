@@ -39,7 +39,7 @@ const FilterData = ({ data: onFilterApply, }) => {
 
         >
 
-            <button className="closeBtn" onClick={destroyModal}><AiOutlineClose size={25} /></button>
+            <button className="closeBtn" onClick={() => destroyModal()}><AiOutlineClose size={25} /></button>
             <h3>Filter Users</h3>
 
             <div className="filterGroup">

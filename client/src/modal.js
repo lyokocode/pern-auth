@@ -1,6 +1,7 @@
 import FilterData from "./modals/FilterData";
 import UpdateProduct from "./modals/UpdateProduct";
 import UpdateUser from "./modals/UpdateUser";
+import NewProduct from "./modals/NewProduct";
 
 const modal = [
     {
@@ -14,6 +15,10 @@ const modal = [
     {
         name: "updateProduct",
         element: UpdateProduct
+    },
+    {
+        name: "newProduct",
+        element: NewProduct
     },
 
 ]
