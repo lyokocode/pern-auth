@@ -25,6 +25,7 @@ body {
   display: flex;
 
   .appContainer {
+    overflow: hidden;
     flex: 6;
     min-height: calc(100vh - 50.5px);
   }

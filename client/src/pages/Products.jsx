@@ -2,11 +2,20 @@ import "../styles/products.scss"
 import { BiBookOpen, BiBookmark, BiRefresh, BiStar } from "react-icons/bi"
 import { MdOutlineExplore } from "react-icons/md"
 import useFetch from "../hooks/useFetch"
-import { ProductItem } from "../components"
+import { FilterMenu, ProductItem } from "../components"
+import { useState } from "react"
+import { Link } from "react-router-dom"
 
 export const Products = () => {
 
-    const { data, loading, error, reFetch } = useFetch(`http://localhost:5000/api/product`)
+    const { data: products, loading, error, reFetch } = useFetch(`http://localhost:5000/api/product`)
+    const { data: categories } = useFetch(`http://localhost:5000/api/category`)
+
+    const [selectedCategory, setSelectedCategory] = useState(null); // Seçili kategoriyi saklayan state
+
+    const filteredProducts = selectedCategory
+        ? products.filter(product => product.CategoryId === selectedCategory.id)
+        : products;
 
     if (loading) return "loading"
     if (error) return "there is a problem"
@@ -43,11 +52,18 @@ export const Products = () => {
                 </button>
             </nav>
 
+            {/* Category Menu */}
+            <FilterMenu
+                categories={categories}
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+            />
+
             {/* Product List  */}
             <main className="productContainer">
                 <div className="productContent ">
                     {/* product1 */}
-                    {data.length > 0 ? data.map(product => (
+                    {filteredProducts.length > 0 ? filteredProducts.map(product => (
                         <ProductItem key={product.id} product={product} />
                     ))
                         : ("products not found")}

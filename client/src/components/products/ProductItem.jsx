@@ -1,8 +1,8 @@
 // ProductItem.js
 import { AiFillSetting } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { useModals, createModal } from '../utils/modal';
-import Modal from '../modals';
+import { useModals, createModal } from '../../utils/modal';
+import Modal from '../../modals';
 
 // Modal işlevini döndüren bir işlev
 const modalMap = {
