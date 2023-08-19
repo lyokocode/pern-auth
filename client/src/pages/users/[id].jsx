@@ -1,11 +1,11 @@
-import useFetch from "../hooks/useFetch"
+import useFetch from "../../hooks/useFetch"
 import { useParams, Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 import { AiOutlineUser } from "react-icons/ai"
 import { BiArrowBack } from "react-icons/bi"
-import "../styles/singleUser.scss"
-import { createModal, useModals } from '../utils/modal';
-import Modal from "../modals"
+import "../../styles/user/single.scss"
+import { createModal, useModals } from '../../utils/modal';
+import Modal from "../../modals"
 
 export const SingleUser = () => {
 

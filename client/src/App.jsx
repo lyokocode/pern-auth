@@ -1,6 +1,6 @@
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Login, Home, Register, Users, SingleUser, Products } from './pages'
+import { Login, Home, Register, Users, SingleUser, Products, SingleProduct } from './pages'
 import { PrivateRoutes, Layout } from './utils'
 
 
@@ -17,7 +17,11 @@ function App() {
                 <Route index element={<Users />} />
                 <Route path=":id" element={<SingleUser />} />
               </Route>
-              <Route path="/products" element={<Products />} />
+              <Route path='/products'>
+                <Route index element={<Products />} />
+                <Route path=":id" element={<SingleProduct />} />
+
+              </Route>
 
             </Route>
           </Route>

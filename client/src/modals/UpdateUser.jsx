@@ -30,7 +30,6 @@ const UpdateUser = ({ data }) => {
         }
     };
 
-
     const [modalStyle, setModalStyle] = useState({
         top: 200,
         left: 200,

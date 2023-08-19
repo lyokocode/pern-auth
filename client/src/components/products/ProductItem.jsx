@@ -1,15 +1,8 @@
-import { AiFillSetting } from 'react-icons/ai';
+import { AiOutlineEye } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { useModals, createModal } from '../../utils/modal';
-import Modal from '../../modals';
 
-const modalMap = {
-    updateProduct: (product, reFetch) => <Modal data={product} reFetch={reFetch} />,
-};
-
-export const ProductItem = ({ product, reFetch }) => {
+export const ProductItem = ({ product }) => {
     const { id, name, description, price, image } = product;
-    const modals = useModals();
 
     return (
         <article className="productCard">
@@ -22,19 +15,17 @@ export const ProductItem = ({ product, reFetch }) => {
                     <p className="place">{description}</p>
                     <div className="info">
                         <p className="price">${price}</p>
-                        <div className="cart"
-                            onClick={() => createModal('updateProduct', product, reFetch)}
+                        <Link
+                            to={`/products/${id}`}
+                            className="cart"
                         >
-                            <AiFillSetting size={14} />
-                            <button >Update</button>
-                        </div>
+                            <AiOutlineEye size={16} />
+                            <button>Wiev</button>
+                        </Link>
                     </div>
                 </div>
             </Link>
-            {modals.map((modal, i) => {
-                const renderModal = modalMap[modal.name];
-                return renderModal && <div className="modalContainer" key={i}>{renderModal(modal.data, reFetch)}</div>;
-            })}
+
         </article>
     );
 };

@@ -1,6 +1,6 @@
-import "../styles/products.scss"
-import useFetch from "../hooks/useFetch"
-import { FilterMenu, ProductItem, TabMenu } from "../components"
+import "../../styles/products/index.scss"
+import useFetch from "../../hooks/useFetch"
+import { FilterMenu, ProductItem, TabMenu } from "../../components"
 import { useState } from "react"
 
 export const Products = () => {

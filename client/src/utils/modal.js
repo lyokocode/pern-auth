@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import store from "../store"
-import { append, destroy, destroyAll } from "../store/modelSlice"
+import { append, destroy, destroyAll } from "../store/modalSlice"
 
 export const useModals = () => useSelector(state => state.modal.modals)
 
