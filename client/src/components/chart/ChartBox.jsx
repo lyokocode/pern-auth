@@ -1,26 +1,26 @@
 import { LineChart, Line, Tooltip, ResponsiveContainer } from 'recharts';
 import "../../styles/chart/chartBox.scss"
-import { userChartData } from '../../data';
 import { Link } from 'react-router-dom';
-import { AiOutlineUser } from 'react-icons/ai';
 
-export const ChartBox = () => {
+
+export const ChartBox = (props) => {
+    console.log(props)
     return (
         <div className="chartBox">
             <div className="boxInfo">
                 <div className="title">
-                    <AiOutlineUser size={16} />
-                    <span>Total Users</span>
+                    <props.icon size={24} color={props.color} />
+                    <span>{props.title}</span>
                 </div>
-                <h1>11.268</h1>
-                <Link to="/" style={{ color: "#a855f7" }}>
+                <h1>{props.number}</h1>
+                <Link to="/" style={{ color: props.color }}>
                     View all
                 </Link>
             </div>
             <div className="chartInfo">
                 <div className="chart">
                     <ResponsiveContainer width="99%" height="100%">
-                        <LineChart data={userChartData}>
+                        <LineChart data={props.chartData}>
                             <Tooltip
                                 contentStyle={{ background: "transparent", border: "none" }}
                                 labelStyle={{ display: "none" }}
@@ -28,8 +28,8 @@ export const ChartBox = () => {
                             />
                             <Line
                                 type="monotone"
-                                dataKey="pv"
-                                stroke="#8884d8"
+                                dataKey={props.dataKey}
+                                stroke={props.color}
                                 strokeWidth={2}
                                 dot={false}
                             />
@@ -39,9 +39,9 @@ export const ChartBox = () => {
                 <div className="texts">
                     <span
                         className="percentage"
-                        style={{ color: "limegreen" }}
+                        style={{ color: props.percentage < 0 ? "tomato" : "limegreen" }}
                     >
-                        45%
+                        {props.percentage}%
                     </span>
                     <span className="duration">this month</span>
                 </div>
