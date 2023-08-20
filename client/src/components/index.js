@@ -15,7 +15,7 @@ export { UserHead } from "./users/UserHead"
 // expenses
 export { ExpenseNavigation } from "./expenses/ExpenseNavigation"
 export { ExpenseTable } from "./expenses/ExpenseTable"
-export { Calender } from "./expenses/Calender"
+export { Calendar } from "./expenses/Calendar"
 
 // charts
 export { Widget } from "./chart/Widget"

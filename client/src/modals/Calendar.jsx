@@ -8,16 +8,20 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { destroyModal } from '../utils/modal';
 
 
-const Calendar = () => {
+const Calendar = ({ data: onSelectDateRange }) => {
 
     const [dateRange, setDateRange] = useState({
-        startDate: moment().startOf('month').toDate(),
-        endDate: moment().endOf('month').toDate(),
-        key: 'selection',
+        startDate: moment().startOf("month").toDate(),
+        endDate: moment().endOf("month").toDate(),
+        key: "selection",
     });
+
     const handleDateRangeChange = (ranges) => {
         setDateRange(ranges.selection);
+        onSelectDateRange(ranges.selection.startDate, ranges.selection.endDate);
     };
+
+
     return (
         <div className='calendar'>
             <button className='closeBtn'
@@ -25,10 +29,9 @@ const Calendar = () => {
             >
                 <AiOutlineClose size={24} />
             </button>
-            <DateRangePicker
-                ranges={[dateRange]}
-                onChange={handleDateRangeChange}
-            />
+            <DateRangePicker ranges={[dateRange]} onChange={handleDateRangeChange} />
+
+
         </div>
     )
 }

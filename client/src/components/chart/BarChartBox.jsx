@@ -1,15 +1,26 @@
-import React from 'react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { expenseData } from "../../data"
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell } from 'recharts';
+import PropTypes from 'prop-types';
+import useFetch from '../../hooks/useFetch';
 
+export const BarChartBox = ({ categories }) => {
 
-export const BarChartBox = () => {
+    // Selecting the top 5 categories with the highest Total_amount value.
+    const topCategories = categories
+        .slice()
+        .sort((a, b) => b.total_amount - a.total_amount)
+        .slice(0, 5);
+
+    // Formatting the data of the selected categories.
+    const chartData = topCategories.map(category => ({
+        name: category.name,
+        expenses: category.total_amount,
+        color: category.color
+    }));
+
     return (
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height={300}>
             <BarChart
-                width={500}
-                height={300}
-                data={expenseData}
+                data={chartData}
                 margin={{
                     top: 5,
                     right: 30,
@@ -22,10 +33,22 @@ export const BarChartBox = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="pv" fill="#8884d8" />
-                <Bar dataKey="uv" fill="#82ca9d" />
-                <Bar dataKey="cv" fill="#f472b6" />
+                <Bar dataKey="expenses" fill="#8884d8" >
+                    {chartData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                </Bar>
             </BarChart>
         </ResponsiveContainer>
-    )
+    );
 }
+
+BarChartBox.propTypes = {
+    categories: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            total_amount: PropTypes.number.isRequired,
+            color: PropTypes.string.isRequired
+        })
+    ).isRequired,
+};

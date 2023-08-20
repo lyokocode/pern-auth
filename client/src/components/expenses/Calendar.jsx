@@ -1,14 +1,14 @@
 import Modal from "../../modals"
 import { createModal, useModals } from "../../utils/modal"
 
-export const Calender = () => {
+export const Calendar = ({ onSelectDateRange }) => {
     const modals = useModals()
     return (
         <div>
             <button onClick={() => {
                 createModal("calendar")
             }}>Date</button>
-            {modals.length > 0 && <Modal />}
+            {modals.length > 0 && <Modal data={onSelectDateRange} />}
 
         </div>
     )

@@ -24,6 +24,12 @@ export const getAllExpenses = async (req, res, next) => {
         // Fetch expenses based on applied filters
         const expenses = await Expense.findAll({
             where: filters,
+            include: [
+                {
+                    model: ExpenseCategory,
+                    attributes: ['name'],
+                },
+            ],
         });
         res.status(200).json(expenses);
 
