@@ -1,7 +1,10 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import "../../styles/products/single.scss"
 import useFetch from "../../hooks/useFetch"
 import { AiOutlineSetting, AiOutlineStock } from "react-icons/ai"
+import { createModal, useModals } from "../../utils/modal"
+import Modal from "../../modals"
+import { BiArrowBack } from "react-icons/bi"
 export const SingleProduct = () => {
     const { id } = useParams()
     console.log(id)
@@ -10,6 +13,8 @@ export const SingleProduct = () => {
 
     const { image, name, stock, price, description } = product
 
+    const modals = useModals()
+
     if (loading) {
         return "loading..."
     } else if (error) {
@@ -17,6 +22,9 @@ export const SingleProduct = () => {
     } else {
         return (
             <div className="singleProduct">
+                <Link to="..">
+                    <BiArrowBack size={18} />
+                </Link>
                 <div
                     className="productContainer   ">
 
@@ -37,7 +45,9 @@ export const SingleProduct = () => {
                             </div>
 
                             {/* action */}
-                            <button className="actionBtn">
+                            <button className="actionBtn" onClick={() => {
+                                createModal("updateProduct")
+                            }}>
                                 <AiOutlineSetting size={16} />
                                 <span>Update</span>
                             </button>
@@ -56,6 +66,8 @@ export const SingleProduct = () => {
                         </div>
                     </div>
                 </div>
+                {modals.length > 0 && <Modal data={product} reFetch={reFetch} />}
+
             </div>
         )
     }

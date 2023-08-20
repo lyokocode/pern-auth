@@ -13,16 +13,16 @@ function App() {
           <Route element={<Layout />}>
             <Route>
               <Route path="/" element={<Home />} />
+
               <Route path='/users'>
                 <Route index element={<Users />} />
                 <Route path=":id" element={<SingleUser />} />
               </Route>
+
               <Route path='/products'>
                 <Route index element={<Products />} />
                 <Route path=":id" element={<SingleProduct />} />
-
               </Route>
-
             </Route>
           </Route>
         </Route>
