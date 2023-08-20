@@ -1,0 +1,77 @@
+.widget {
+
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    background-color: #FFF;
+    border-radius: 0.25rem;
+    background-color: #faf5ff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    .left,
+    .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .title {
+            font-weight: bold;
+            font-size: 14px;
+            color: rgb(160, 160, 160);
+        }
+
+        .counter {
+            font-size: 28px;
+            font-weight: 300;
+        }
+
+        .link {
+            width: max-content;
+            font-size: 12px;
+            border-bottom: 1px solid gray;
+            cursor: pointer;
+        }
+
+        .percantage {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+
+            &.positive {
+                color: green;
+            }
+
+            &.negative {
+                color: red;
+            }
+        }
+
+        .icon {
+            font-size: 28px;
+            padding: 5px;
+            border-radius: 5px;
+            align-self: flex-end;
+
+            &.user {
+                color: crimson;
+                background-color: rgba(255, 0, 0, 0.2);
+            }
+
+            &.shoppigCart {
+                color: green;
+                background-color: rgba(0, 128, 0, 0.2);
+            }
+
+            &.expenseIcon {
+
+                color: crimson;
+                background-color: rgba(255, 0, 0, 0.2);
+            }
+
+            &.balance {
+                color: purple;
+                background-color: rgba(128, 0, 128, 0.2);
+            }
+
+
+        }
+    }
+}
