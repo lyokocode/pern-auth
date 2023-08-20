@@ -16,6 +16,7 @@ export { UserHead } from "./users/UserHead"
 export { Widget } from "./chart/Widget"
 export { ChartBox } from "./chart/ChartBox"
 export { PieChartBox } from "./chart/PieChartBox"
+export { AreaChartBox } from "./chart/AreaChartBox"
 
 // home
 export { TopBox } from "./TopBox"
