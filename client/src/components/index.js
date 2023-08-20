@@ -15,4 +15,8 @@ export { UserHead } from "./users/UserHead"
 // charts
 export { Widget } from "./chart/Widget"
 
+// home
+export { TopBox } from "./TopBox"
+
+
 

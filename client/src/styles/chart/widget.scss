@@ -1,9 +1,11 @@
 .widget {
 
     box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-    background-color: #FFF;
     border-radius: 0.25rem;
     background-color: #faf5ff;
+    min-width: 150px;
+    max-width: 250px;
+
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
     .left,

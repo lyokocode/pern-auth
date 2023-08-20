@@ -1,11 +1,6 @@
-import React from 'react'
 import "../../styles/chart/widget.scss"
 import { MdOutlineKeyboardArrowUp, MdOutlineShoppingCart, MdPersonOutline, MdOutlineAccountBalanceWallet, MdFastfood } from "react-icons/md"
 import { SiExpensify } from "react-icons/si"
-import { FaDailymotion } from "react-icons/fa"
-import { BiCalendarWeek } from "react-icons/bi"
-import { BsCalendar2MonthFill } from "react-icons/bs"
-import { GiCalendarHalfYear } from "react-icons/gi"
 
 export const Widget = ({ type }) => {
 
@@ -52,45 +47,6 @@ export const Widget = ({ type }) => {
                 icon: <MdOutlineAccountBalanceWallet className='icon balance' />,
             };
             break;
-        case "daily":
-            data = {
-                title: "today",
-                isMoney: true,
-                total: amount,
-                link: "see details",
-                icon: <FaDailymotion className='icon balance' />,
-            };
-            break;
-        case "weekly":
-            data = {
-                title: "Weekly",
-                isMoney: true,
-                total: amount,
-                link: "see details",
-                icon: <GiCalendarHalfYear className='icon balance' />,
-            };
-            break;
-
-        case "monthly":
-            data = {
-                title: "this month",
-                isMoney: true,
-                total: amount,
-                link: "see details",
-                icon: <BsCalendar2MonthFill className='icon balance' />,
-            };
-            break;
-        case "yearly":
-            data = {
-                title: "this year",
-                isMoney: true,
-                total: amount,
-                link: "see details",
-                icon: <GiCalendarHalfYear className='icon balance' />,
-            };
-            break;
-
-
         default:
             break;
     }
