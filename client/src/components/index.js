@@ -12,11 +12,17 @@ export { TabMenu } from "./products/TabMenu"
 export { UserTable } from "./users/UserTable"
 export { UserHead } from "./users/UserHead"
 
+// expenses
+export { ExpenseNavigation } from "./expenses/ExpenseNavigation"
+export { ExpenseTable } from "./expenses/ExpenseTable"
+export { Calender } from "./expenses/Calender"
+
 // charts
 export { Widget } from "./chart/Widget"
 export { ChartBox } from "./chart/ChartBox"
 export { PieChartBox } from "./chart/PieChartBox"
 export { AreaChartBox } from "./chart/AreaChartBox"
+export { BarChartBox } from "./chart/BarChartBox"
 
 // home
 export { TopBox } from "./TopBox"

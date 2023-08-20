@@ -71,7 +71,7 @@ export const Sidebar = () => {
                         <span>Delivery</span>
                     </li>
                     <p className="title">Useful</p>
-                    <Link to="/">
+                    <Link to="/expenses">
                         <li>
                             <SiExpensify className="icon" />
                             <span>Expense</span>

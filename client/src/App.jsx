@@ -1,6 +1,6 @@
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Login, Home, Register, Users, SingleUser, Products, SingleProduct } from './pages'
+import { Login, Home, Register, Users, SingleUser, Products, SingleProduct, Expenses } from './pages'
 import { PrivateRoutes, Layout } from './utils'
 
 
@@ -23,6 +23,11 @@ function App() {
                 <Route index element={<Products />} />
                 <Route path=":id" element={<SingleProduct />} />
               </Route>
+
+              <Route path='/expenses'>
+                <Route index element={<Expenses />} />
+              </Route>
+
             </Route>
           </Route>
         </Route>
