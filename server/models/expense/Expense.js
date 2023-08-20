@@ -1,6 +1,8 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../../database/db.js";
 import { ExpenseCategory } from "./Category.js";
+import moment from "moment";
+
 
 export const Expense = sequelize.define('Expense', {
     id: {
@@ -22,6 +24,14 @@ export const Expense = sequelize.define('Expense', {
     date: {
         type: DataTypes.DATEONLY,
         allowNull: false,
+        validate: {
+            async isDateAfterCategoryDate() {
+                const category = await this.getExpenseCategory();
+                if (category && moment(this.date).isBefore(category.date, 'day')) {
+                    throw new Error("Expense date cannot be earlier than category date");
+                }
+            },
+        },
     },
 });
 

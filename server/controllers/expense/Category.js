@@ -40,16 +40,15 @@ export const getAllCategories = async (req, res, next) => {
     }
 }
 
-
+// Create a new category
 export const createCategory = async (req, res, next) => {
     try {
-        const { name, color } = req.body;
+        const { name, date } = req.body;
 
-        // Create a new category
         const newCategory = await ExpenseCategory.create({
             name,
             color: randomColor(),
-            date: moment().format("L")
+            date
         });
 
         res.status(201).json(newCategory);
