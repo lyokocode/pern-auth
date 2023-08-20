@@ -16,14 +16,18 @@ export const Home = () => {
             </div>
 
             {/* top users */}
-            <div className="box box2">
-                <TopBox />
-            </div>
+            <div className="box box2"> <TopBox /> </div>
 
-            {/* chartBox */}
+            {/* user chartBox */}
             <div className="box box3"> <ChartBox {...userChartData} /></div>
+
+            {/* product chartBox */}
             <div className="box box4"> <ChartBox {...productChartData} /> </div>
+
+            {/* expense chart */}
             <div className="box box5"> <PieChartBox /></div>
+
+            {/* Revenue  chart */}
             <div className="box box6"> <AreaChartBox /></div>
         </div>
     )
