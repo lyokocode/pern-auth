@@ -10,7 +10,6 @@ export const UserTable = ({ user, reFetch }) => {
         try {
             await axios.delete(`http://localhost:5000/api/user/user?id=${id}`);
             reFetch()
-            console.log(id)
         } catch (error) {
             console.error("Error deleting user:", error);
         }

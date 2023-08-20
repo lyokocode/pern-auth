@@ -22,7 +22,6 @@ const UpdateUser = ({ data }) => {
                 `http://localhost:5000/api/user/user?id=${data.id}`,
                 { role: newRole }
             );
-            console.log("Role updated:", response.data);
             destroyModal();
             navigate("/users")
         } catch (error) {
