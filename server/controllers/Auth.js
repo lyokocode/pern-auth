@@ -20,6 +20,7 @@ export const register = async (req, res, next) => {
             phoneNumber: req.body.phoneNumber,
             company: req.body.company,
             country: req.body.country,
+            image: req.body.image,
             password: hash
         });
         return res.status(201).json(newUser);
