@@ -1,10 +1,11 @@
 import { LineChart, Line, Tooltip, ResponsiveContainer } from 'recharts';
 import "../../styles/chart/chartBox.scss"
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 
 export const ChartBox = (props) => {
-    console.log(props)
+
     return (
         <div className="chartBox">
             <div className="boxInfo">
@@ -49,3 +50,13 @@ export const ChartBox = (props) => {
         </div>
     )
 }
+
+ChartBox.propTypes = {
+    icon: PropTypes.elementType.isRequired,
+    color: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+    chartData: PropTypes.array.isRequired,
+    dataKey: PropTypes.string.isRequired,
+    percentage: PropTypes.number.isRequired,
+};

@@ -1,9 +1,10 @@
 import "../../styles/chart/widget.scss"
 import { MdOutlineKeyboardArrowUp, MdOutlineShoppingCart, MdPersonOutline, MdOutlineAccountBalanceWallet, MdFastfood } from "react-icons/md"
 import { SiExpensify } from "react-icons/si"
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-export const Widget = ({ type }) => {
-
+export const Widget = ({ type, totalExpense }) => {
 
     let data;
     let amount = 100
@@ -17,6 +18,7 @@ export const Widget = ({ type }) => {
                 total: diff,
                 isMoney: false,
                 link: "see all users",
+                linkAdress: "users",
                 icon: <MdPersonOutline className='icon user' />,
             };
             break;
@@ -31,16 +33,17 @@ export const Widget = ({ type }) => {
             break;
         case "expense":
             data = {
-                title: "expense",
+                title: "EXPENSES",
                 isMoney: true,
-                total: amount,
+                total: totalExpense ? totalExpense : "",
                 link: "view all expense",
+                linkAdress: "expenses",
                 icon: <SiExpensify className='icon expenseIcon' />,
             };
             break;
         case "balance":
             data = {
-                title: "Balance",
+                title: "BALANCE",
                 isMoney: false,
                 total: amount,
                 link: "see details",
@@ -59,7 +62,7 @@ export const Widget = ({ type }) => {
                     {data.isMoney && "$"}
                     {data.total}
                 </span>
-                <span className="link">{data.link}</span>
+                <Link to={data.linkAdress ? `/${data.linkAdress}` : "/"} className="link">{data.link}</Link>
             </div>
             <div className="right">
                 <div className="percantage positive">
@@ -71,3 +74,8 @@ export const Widget = ({ type }) => {
         </div>
     )
 }
+
+Widget.propTypes = {
+    type: PropTypes.string.isRequired,
+    totalExpense: PropTypes.number, // Eğer tip "expense" ise ve totalExpense prop'u varsa, number tipinde olmalı
+};

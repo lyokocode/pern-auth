@@ -1,6 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell } from 'recharts';
 import PropTypes from 'prop-types';
-import useFetch from '../../hooks/useFetch';
 
 export const BarChartBox = ({ categories }) => {
 

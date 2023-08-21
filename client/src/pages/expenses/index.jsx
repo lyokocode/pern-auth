@@ -1,8 +1,8 @@
 import { useState } from "react";
 import useFetch from "../../hooks/useFetch";
+import moment from "moment";
 import "../../styles/expense/expensePage.scss";
 import { BarChartBox, Calendar, ExpenseTable, ExpenseNavigation } from "../../components";
-import moment from "moment";
 
 export const Expenses = () => {
     const [selectedStartDate, setSelectedStartDate] = useState(moment().startOf("month").toDate());
@@ -22,7 +22,6 @@ export const Expenses = () => {
     const { data: expenses, loading: expensesLoading, error: expensesError, reFetch: expensesRefetch } = useFetch(
         `http://localhost:5000/api/expense?startDate=${selectedStartDate}&endDate=${selectedEndDate}`
     );
-    console.log(expenses)
 
     const handleCategoryClick = (categoryId) => {
         setSelectedCategoryId(categoryId);
@@ -40,7 +39,6 @@ export const Expenses = () => {
         ? expenses.filter((expense) => expense.ExpenseCategoryId === selectedCategoryId)
         : expenses;
 
-    console.log(categories)
 
     return (
         <div className="expensePage">

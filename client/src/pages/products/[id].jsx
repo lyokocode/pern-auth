@@ -7,7 +7,6 @@ import Modal from "../../modals"
 import { BiArrowBack } from "react-icons/bi"
 export const SingleProduct = () => {
     const { id } = useParams()
-    console.log(id)
 
     const { data: product, loading, error, reFetch } = useFetch(`http://localhost:5000/api/product/product?id=${id}`)
 

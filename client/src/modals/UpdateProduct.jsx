@@ -3,6 +3,8 @@ import "../styles/modal/updateProduct.scss"
 import axios from "axios"
 import { destroyModal } from "../utils/modal";
 import { AiOutlineClose } from "react-icons/ai";
+import PropTypes from 'prop-types';
+
 
 
 const UpdateProduct = ({ data: product, reFetch }) => {
@@ -83,5 +85,17 @@ const UpdateProduct = ({ data: product, reFetch }) => {
         </>
     )
 }
+UpdateProduct.propTypes = {
+    data: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        stock: PropTypes.number.isRequired,
+        image: PropTypes.string.isRequired,
+    }).isRequired,
+    reFetch: PropTypes.func.isRequired,
+};
+
 
 export default UpdateProduct
